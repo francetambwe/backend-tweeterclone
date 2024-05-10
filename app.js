@@ -1,9 +1,13 @@
 import express from 'express';
 import data from './data.js'; 
+import dotenv from 'dotenv'
+
+dotenv.config();
+
 
 
 const app = express();
-const PORT = 3000
+const {PORT} = process.env
 
 let ourTweets = [...data.tweets]
 
