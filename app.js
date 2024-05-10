@@ -1,17 +1,20 @@
 import express from 'express';
 import data from './data.js'; 
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 dotenv.config();
 
 
 
 const app = express();
-const {PORT} = process.env
+const {PORT} = process.env ||3000
+
 
 let ourTweets = [...data.tweets]
-
+app.use(cors())
 app.use(express.json());
+
 app.get('/tweets', (req, res) => {
   res.send(ourTweets);
 })
